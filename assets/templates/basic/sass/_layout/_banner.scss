@@ -1,0 +1,205 @@
+.banner-section {
+    padding: 150px 0;
+    position: relative;
+    @include breakpoint(max-lg) {
+        padding: 120px 0;
+    }
+    @include breakpoint(max-sm) {
+        padding: 100px 0;
+    }
+    @include breakpoint(max-xs) {
+        padding: 70px 0;
+    }
+    &::before {
+        @include before-set;
+        background: $primary-color;
+        opacity: .05;
+    }
+    .container {
+        position: relative;
+    }
+}
+.banner__content {
+    max-width: 750px;
+    @include breakpoint(max-xxl) {
+        max-width: 700px;
+    }
+    @include breakpoint(max-xl) {
+        max-width: 650px;
+    }
+    @include breakpoint(max-lg) {
+        max-width: 100%;
+    }
+    @include breakpoint(max-md) {
+        text-align: center;
+    }
+    .subtitle {
+        margin-bottom: 15px;
+        font-size: 22px;
+        font-weight: 600;
+        color: $base-color;
+        @include breakpoint(max-xl) {
+            font-size: 20px;
+        }
+        @include breakpoint(max-md) {
+            font-size: 18px;
+        }
+    }
+    &-title {
+        margin-bottom: 20px;
+        font-weight: 700;
+        @include breakpoint(max-xl) {
+            font-size: 42px;
+        }
+        @include breakpoint(max-md) {
+            font-size: 36px;
+        }
+        @include breakpoint(max-sm) {
+            font-size: 32px;
+        }
+        @include breakpoint(max-xs) {
+            font-size: 30px;
+        }
+    }
+    p {
+        font-size: 18px;
+        max-width: 600px;
+        @include breakpoint(max-sm) {
+            font-size: 16px;
+        }
+    }
+}
+.banner__thumb {
+    max-width: calc(100% - 750px);
+}
+
+.job__search {
+    margin-top: 45px;
+    @include breakpoint(max-sm) {
+        margin-top: 30px;
+    }
+    .nice-select {
+        box-shadow: none;
+        border-right: 1px solid $border-color !important;
+        @include breakpoint(max-sm) {
+            height: 50px;
+            width: 100%;
+            border-radius: 35px;
+            margin-bottom: 15px;
+        }
+    }
+    .form--group {
+        padding: 10px 15px;
+        background: $white;
+        box-shadow: 0 0 10px 5px rgba($base-color,.15);
+        border-radius: 50px;
+        @include breakpoint(max-xl) {
+            padding: 8px 12px;
+        }
+        
+        @include breakpoint(max-sm) {
+            display: block !important;
+            background: transparent;
+            box-shadow: none;
+            padding: 0;
+        }
+        * {
+            @include breakpoint(sm) {
+                border: 0;
+            }
+        }
+    }
+    .form--control {
+        @include breakpoint(max-sm) {
+            margin: 15px 0;
+        }
+        &:focus {
+            box-shadow: none;
+        }
+    }
+    .btn {
+        @include breakpoint(max-sm) {
+            width: 100%;
+            padding: 12px;
+        }
+    }
+}
+.popular__tags {
+    margin-top: 40px;
+    @include breakpoint(max-sm) {
+        margin-top: 30px;
+    }
+    .tags-list {
+        width: auto;
+        margin: 0;
+        margin-top: 10px;
+        li {
+            display: inline-block;
+            width: auto;
+            padding: 4px 2px;
+            a {
+                font-size: 14px;
+                border: 1px solid $border-color;
+                padding: 4px 10px;
+                border-radius: 3px;
+                background: $white;
+                &:hover {
+                    color: $base-color;
+                    border-color: $base-color;
+                }
+            }
+        }
+    }
+}
+
+
+// Banner Inner
+.banner-inner {
+    padding: 120px 0;
+    position: relative;
+    @include breakpoint(max-md) {
+        padding: 90px 0;
+    }
+    @include breakpoint(max-sm) {
+        padding: 70px 0;
+    }
+    .shape1 {
+        position: absolute;
+        max-width: 400px;
+        left: 0;
+        bottom: 0;
+        opacity: .4;
+        @include breakpoint(max-lg) {
+            max-width: 300px;
+        }
+        @include breakpoint(max-sm) {
+            display: none;
+        }
+    }
+    &::before {
+        @include before-set;
+        background: rgba($primary-color,.05);
+    }
+    .container {
+        position: relative;
+    }
+}
+.banner__inner__content {
+    text-align: center;
+    &-title {
+        margin-bottom: 10px;
+    }
+    .breadcums {
+        font-size: 18px;
+        li {
+            margin-right: 15px;
+            a {
+                color: $dark;
+                font-weight: 600;
+                &:hover {
+                    color: $base-color;
+                }
+            }
+        }
+    }
+}

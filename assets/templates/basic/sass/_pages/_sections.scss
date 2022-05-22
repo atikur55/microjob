@@ -1,0 +1,1026 @@
+// Counter Section Starts Here
+.counter__item {
+    padding: 30px 15px;
+    border: 1px solid $border-color;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px 0px rgba($primary-color,.1);
+    text-align: center;
+    @include transition;
+    background: $white;
+    position: relative;
+    overflow: hidden;
+    @include breakpoint(max-xl) {
+        padding: 40px 20px;
+    }
+    &::before, &::after {
+        position: absolute;
+        content: '';
+        width: 100px;
+        height: 100px;
+        background: $base-color;
+        left: 0;
+        top: 0;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+    }
+    &:hover {
+        box-shadow: 0 5px 20px 7px rgba($primary-color,.1);
+        background: rgba($base-color,.02);
+    }
+    &-icon {
+        line-height: 1;
+        color: $base-color;
+        display: inline-block;
+        font-size: 70px;
+        margin-bottom: 15px;
+        position: relative;
+        &::before {
+            position: absolute;
+            content: '';
+            background: url(./../images/icon/icon-bg.png) no-repeat;
+            width: 120px;
+            height: 120px;
+            left: -10%;
+            top: -15px;
+        }
+        i {
+            position: relative;
+            z-index: 1;
+        }
+        @include breakpoint(max-xl) {
+            font-size: 60px;
+        }
+    }
+    &-content {
+        .title {
+            font-size: 36px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .info {
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+}
+// Counter Section Ends Here
+
+
+// Overview Section Starts Here
+.overview__content__wrapper {
+    position: relative;
+    height: 100%;
+    &::before {
+        @include before-set;
+        background: $base-color;
+        opacity: .95;
+    }
+    .btn {
+        color: $base-color !important;
+        background: $white !important;
+    }
+    &.right-bg {
+        &::before {
+            background: $primary-color;
+            opacity: .05;
+        }
+        .btn {
+            color: $white !important;
+            background: $base-color !important;
+        }
+    }
+    .shape1 {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        max-width: 500px;
+        @include breakpoint(max-sm) {
+            max-width: 300px;
+        }
+    }
+}
+.overview__content {
+    max-width: 625px;
+    position: relative;
+    z-index: 1;
+    padding-right: 30px;
+    @include breakpoint(max-xxl) {
+        max-width: 555px;
+    }
+    @include breakpoint(max-xl) {
+        max-width: 445px;
+    }
+    @include breakpoint(max-lg) {
+        max-width: 650px;
+    }
+    .section__header-title {
+        margin-bottom: 35px;
+        padding-bottom: 25px;
+        @include breakpoint(max-xs) {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+        }
+    }
+    p {
+        font-size: 18px;
+    }
+    .btn {
+        margin-top: 35px;
+    }
+}
+// Overview Section Ends Here
+
+
+// Categroy Section Starts Here
+.category__item {
+    padding: 55px 30px;
+    text-align: center;
+    border: 1px solid $border-color;
+    box-shadow: 0 0 25px rgba($primary-color,.1);
+    position: relative;
+    @extend %flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include transition;
+    overflow: hidden;
+    @include breakpoint(max-xxl)  {
+        padding: 30px 20px;
+    }
+    @include breakpoint(max-xxl)  {
+        padding: 30px 15px;
+    }
+    &:hover {
+        box-shadow: 0 5px 15px 5px rgba($primary-color,.15);
+        &::before {
+            width: 50px;
+        }
+        .category__item-icon {
+            transform: translateY(-200%);
+        }
+        .title {
+            transform: translateY(-90px);
+        }
+        
+        p {
+            transform: translateY(-90px);
+            top: auto;    
+        }
+    }
+    &-icon {
+        color: $base-color;
+        font-size: 70px;
+        line-height: 1;
+        @include transition;
+        @include breakpoint(max-xl) {
+            font-size: 56px;
+        }
+        @include breakpoint(max-xs) {
+            font-size: 46px;
+        }
+    }
+    &-content {
+        .title {
+            margin-top: 15px;
+            @include transition;
+        }
+    }
+    .job_cate {
+        @include before-set;
+    }
+    .job-count {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        @include breakpoint(max-xs) {
+            right: 10px;
+            top: 10px;
+            padding: 2px 8px !important;
+            font-size: 12px;
+        }
+    }
+    p {
+        position: absolute;
+        padding: 0 20px;
+        left: 0;
+        width: 100%;
+        top: 100%;
+        @include transition;
+    }
+}
+// Categroy Section Ends Here
+
+
+// Job Section Starts Here
+.job__item {
+    background: $white;
+    box-shadow: 0 0 15px rgba($primary-color,.1);
+    @include transition;
+    &:hover {
+        box-shadow: 0 5px 15px 5px rgba($primary-color,.15);
+        .job__item-thumb {
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+    &-thumb {
+        position: relative;
+            &::before {
+                @include before-set;
+                background: rgba($dark,.3);
+                opacity: 0;
+                @include transition;
+            }
+        img {
+            width: 100%;
+        }
+        .job-type {
+            position: absolute;
+            right: 12px;
+            top: 12px;
+            padding-left: 20px !important;
+            font-size: 12px !important;
+            &::before {
+                position: absolute;
+                content: '';
+                width: 8px;
+                height: 8px;
+                left: 7px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: $white;
+                border-radius: 50%;
+            }
+        }
+    }
+    &-content {
+        padding: 20px 15px;
+        border: 1px solid $border-color;
+        .tag {
+            position: relative;
+            background: rgba($primary-color,.1);
+            font-size: 12px !important;
+            text-transform: uppercase;
+            color: $primary-color;
+            i {
+                margin-right: 3px;
+            }
+        }
+        .title {
+            font-size: 18px;
+            margin: 15px 0 0px;
+            a {
+                @include text-wrap;
+                &:hover {
+                    color: $base-color;
+                }
+            }
+        }
+        .job-author {
+            font-size: 14px;
+        }
+        .job__info {
+            margin-top: 10px;
+            li {
+                @extend %flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            &-title {
+                font-size: 14px;
+            }
+            span {
+                font-size: 15px;
+            }
+        }
+        .content__footer {
+            padding-top: 15px;
+            margin-top: 15px;
+            border-top: 1px solid $border-color;
+            .price {
+                color: $base-color;
+                font-size: 20px;
+                @include breakpoint(max-xs) {
+                    font-size: 24px;
+                }
+            }
+            .btn {
+                font-weight: 600;
+                font-size: 13px !important;
+            }
+        }
+    }
+}
+// Job Section Ends Here
+
+
+// Top Freelancer Section Starts Here
+.freelancer__slider {
+    .slick-list {
+        margin-top: -30px;
+        padding: 30px 0 !important;
+    }
+    @include breakpoint(max-md) {
+        .slick-arrow {
+            display: none !important;
+        }
+    }
+}
+.freelancer__item {
+    box-shadow: 0 0 10px 5px rgba($primary-color,.1);
+    margin: 0 12px;
+    @include breakpoint(max-md) {
+        margin: 0;
+        box-shadow: none;
+        border: 1px solid $border-color;
+    }
+}
+.freelancer__header {
+    padding: 40px 40px 20px;
+    background: $white;
+    text-align: center;
+    @include breakpoint(max-xl) {
+        padding: 25px 25px 20px;
+    }
+    .thumb {
+        height: 130px;
+        width: 130px;
+        margin: 0 auto 20px;
+        position: relative;
+        @include breakpoint(max-xl) {
+            width: 100px;
+            height: 100px;
+        }
+        img {
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .verify-status {
+            position: absolute;
+            padding: 3px;
+            background: rgba($dark,.4);
+            font-size: 12px;
+            border-radius: 50%;
+            color: $white;
+            right: 7px;
+            bottom: 3px;
+            border: 8px solid $white;
+            @include breakpoint(max-xl) {
+                padding: 2px;
+                font-size: 9px;
+                border-width: 5px;
+                right: 5px;
+            }
+            &:hover {
+                .tooltip {
+                    opacity: 1 !important;
+                    visibility: visible !important;
+                    color: $dark;
+                    bottom: 100%;
+                    width: auto;
+                    background: $white;
+                    padding: 5px 10px;
+                    font-size: 12px;
+                    border-radius: 5px;
+                }
+            }
+            &.verified {
+                background: $success;
+            }
+        }
+    }
+    .name {
+        margin-bottom: 5px;
+    }
+    .designation {
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    .rate {
+        color: $star;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .rating {
+        display: inline-flex;
+        li {
+            color: $star;
+            font-size: 18px;
+        }
+    }
+}
+.freelancer__footer {
+    padding: 20px 40px 40px;
+    background: rgba($primary-color,.03);
+    @include breakpoint(max-xl) {
+        padding: 20px 25px 25px;
+    }
+    .freelancer__info {
+        margin: 0;
+        font-size: 14px !important;
+        margin-bottom: 15px;
+        @include breakpoint(max-xl) {
+            margin-bottom: 5px;
+        }
+        .title {
+            font-size: 14px;
+            @include breakpoint(max-xl) {
+                font-size: 13px;
+            }
+        }
+        li {
+            padding: 0;
+            margin-right: 20px;
+            margin-bottom: 15px;
+            &:last-child {
+                margin: 0;
+            }
+        }
+    }
+}
+// Top Freelancer Section Ends Here
+
+
+// Blog Section Starts Here
+.post__item {
+    background: $white;
+    padding: 5px;
+    border: 1px solid $border-color;
+    @include transition;
+    &:hover {
+        box-shadow: 0 5px 15px 5px rgba($primary-color,.15);
+    }
+    &-thumb {
+        img {
+            width: 100%;
+        }
+    }
+    &-content {
+        padding: 25px 15px;
+        .title {
+            margin-bottom: 20px;
+            @include breakpoint(max-xl) {
+                margin-bottom: 15px;
+            }
+            a {
+                @include text-wrap;
+                &:hover {
+                    color: $base-color;
+                }
+            }
+        }
+        .post-meta {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            padding: 4px 0;
+            margin-left: 10px;
+            border-radius: 50px 0 0 50px;
+            background: rgba($dark,.03);
+            margin-right: -20px;
+            border: 1px solid $border-color;
+            border-right: 0;
+            li {
+                padding: 0;
+            }
+            .post__author {
+                display: flex;
+                align-items: center;
+                margin-right: 25px;
+                &-thumb {
+                    margin: -5px;
+                    margin-right: 10px;
+                    img {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+                }
+                .name {
+                    font-size: 15px;
+                }
+            }
+            .date {
+                font-size: 14px;
+                i {
+                    font-size: 13px;
+                    margin-right: 2px;
+                }
+            }
+        }
+        p {
+            margin-top: 20px;
+            @include breakpoint(max-xl) {
+                margin-top: 15px;
+            }
+        }
+        .read-more {
+            margin-top: 20px;
+            color: $title-color;
+            position: relative;
+            padding-right: 10px;
+            @include breakpoint(max-xl) {
+                margin-top: 10px;
+            }
+            &:hover {
+                color: $base-color;
+                &::before {
+                    transform: translateX(7px);
+                    background: $base-color;
+                }
+            }
+            &::before {
+                position: absolute;
+                content: '';
+                width: 35px;
+                height: 2px;
+                background: $title-color;
+                left: 100%;
+                top: 49%;
+                @include transition;
+            }
+        }
+    }
+}
+
+// Details Part
+.announcement__details {
+    padding: 30px;
+    border: 1px solid $border-color;
+    @include breakpoint(max-xl) {
+        padding: 20px 15px;
+    }
+    .announcement__details__thumb {
+        width: 100%;
+        margin-bottom: 30px;
+        img {
+            width: 100%;
+        }
+    }
+    .announcement__meta {
+        font-size: 14px;
+        li {
+            margin-right: 25px;
+            i {
+                margin-right: 5px;
+                font-size: 15px;
+                color: $base-color;
+            }
+        }
+    }
+    .post__author {
+        img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+    }
+    .announcement__details__content {
+        p {
+            margin-bottom: 15px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+.widget-box {
+    padding: 30px;
+    @include breakpoint(max-xl) {
+        padding: 20px 15px;
+    }
+}
+.post-widget {
+    background: $white;
+    box-shadow: 0px 4px 4px rgb(204 204 204 / 25%);
+    margin-bottom: 30px;
+    border: 1px solid $border-color;
+    .pro-title {
+        position: relative;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid $border-color;
+        &::before {
+            height: 3px;
+            content: "";
+            position: absolute;
+            width: 40px;
+            background: #ff5b37;
+            bottom: 0;
+            left: 0;
+        }
+        &::after {
+            height: 3px;
+            content: "";
+            position: absolute;
+            width: 15px;
+            background: #ff5b37;
+            bottom: 0;
+            left: 45px;
+        }
+    }
+}
+.latest-posts {
+    li {
+        padding: 15px 0;
+        @extend %flex;
+
+    }
+    .post-thumb {
+        width: 75px;
+        img {
+            width: 75px;
+            border-radius: 10px;
+        }
+    }
+    .post-info {
+        width: calc(100% - 75px);
+        padding-left: 15px;
+        a {
+            @include text-wrap;
+        }
+        .posts-date {
+            font-size: 14px;
+            margin-top: 8px;
+            i {
+                font-size: 13px;
+                color: $base-color;
+            }
+        }
+    }
+}
+// Blog Section Ends Here
+
+
+// Get Started Section Starts Here
+.get-started {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 40px 45px;
+    background: $white;
+    box-shadow: 0 0 15px 5px rgba($primary-color,.1);
+    position: relative;
+    z-index: 2;
+    border-radius: 15px;
+    margin-bottom: -50px;
+    @include breakpoint(max-xl) {
+        padding: 45px 35px;
+    }
+    @include breakpoint(max-lg) {
+        padding: 35px 30px;
+    }
+    @include breakpoint(max-xs) {
+        padding: 25px 20px;
+    }
+    .cmn--btn {
+        max-width: 250px;
+        @include breakpoint(max-xl) {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 16px;
+        }
+        @include breakpoint(max-lg) {
+            margin-top: 20px;
+            padding: 10px 25px;
+            font-size: 16px;
+        }
+    }
+    .section__header {
+        width: calc(100% - 250px);
+        padding-right: 50px;
+        @include breakpoint(max-lg) {
+            width: 100%;
+            padding: 0;
+        }
+    }
+}
+// Get Started Section Ends Here
+
+
+// About Section Starts Here
+.about__content {
+    padding-right: 50px;
+    @include breakpoint(max-xl) {
+        padding-right: 10px;
+    }
+    .about__info {
+        margin: 0;
+        li {
+            padding: 06px 0;
+            position: relative;
+            padding-left: 25px;
+            &::before {
+                @include line-ico;
+                content: '\f14a';
+                left: 0;
+                top: 5px;
+                font-size: 18px;
+                color: $base-color;
+            }
+        }
+    }
+}
+.about__thumb {
+    position: relative;
+    .thumb1 {
+        box-shadow: 0 0 15px rgba($primary-color,.2);
+        max-width: 450px;
+        margin-left: 50px;
+        margin-bottom: 30px;
+        @include breakpoint(max-xxl) {
+            margin-left: 0;
+        }
+        @include breakpoint(max-xl) {
+            max-width: 400px;
+            margin-left: 0;
+        }
+    }
+    .thumb2 {
+        max-width: 300px;
+        position: absolute;
+        left: -30px;
+        bottom: 0px;
+        box-shadow: 0 0 15px rgba($primary-color,.15);
+        border-radius: 15px;
+        @include breakpoint(max-xl) {
+            max-width: 250px;
+            top: 200px;
+        }
+    }
+    img {
+        width: 100%;
+    }
+}
+// About Section Ends Here
+
+
+// Service Section Starts Here
+.service__thumb {
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+.service__content {
+    background: $section-bg;
+    padding-left: 50px;
+    @include breakpoint(max-lg) {
+        padding-left: 15px;
+    }
+    .content__inner {
+        max-width: 750px;
+        padding-right: 30px;
+    }
+}
+
+.service__item {
+    max-width: 400px;
+    &-icon {
+        font-size: 48px;
+        color: $base-color;
+    }
+    .title {
+        margin-bottom: 10px;
+    }
+}
+// Service Section Ends Here
+
+
+// Faq Section Starts Here
+
+.faq__tab__menu {
+    margin: 0;
+    padding-bottom: 15px;
+    .tab__item {
+        padding: 10px;
+        @include breakpoint(max-lg) {
+            padding: 5px;
+        }
+    }
+    .tab__link {
+        padding: 22px 35px;
+        border: 1px solid $border-color;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 1px 2px 5px 1px rgba($primary-color,.1);
+        position: relative;
+        &::before {
+            position: absolute;
+            content: '';
+            width: 10px;
+            height: 10px;
+            right: 10px;
+            top: 10px;
+            border-radius: 50%;
+            background: $base-color;
+            opacity: 0;
+            @include transition;
+        }
+        &:hover, &.active {
+            box-shadow: 1px 2px 8px 3px rgba($primary-color,.15);
+            &::before {
+                opacity: 1;
+            }
+            * {
+                color: $base-color;
+            }
+        }
+        i {
+            font-size: 46px;
+            margin-bottom: 10px;
+            @include transition;
+        }
+        @include breakpoint(max-xl) {
+            padding: 20px 30px;
+            i {
+                font-size: 40px;
+            }
+        }
+        @include breakpoint(max-md) {
+            padding: 15px 20px;
+            i {
+                font-size: 30px;
+            }
+        }
+    }
+}
+.faq__item {
+    border-bottom: 1px solid $border-color;
+    &:last-child {
+        border: 0;
+        .faq__item-content {
+            padding-bottom: 0;
+        }
+    }
+    &.open {
+        .faq__item-title {
+            &::after {
+                transform: rotate(45deg);
+            }
+            &::before {
+                background: $base-color;
+            }
+        }
+    }
+    &-title {
+        cursor: pointer;
+        padding: 25px 25px;
+        position: relative;
+        &::before {
+            position: absolute;
+            content: '';
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            left: 0px;
+            top: 30px;
+            background: $body-color;
+        }
+        &::after {
+            @include line-ico;
+            content: '\f067';
+            right: 0;
+            top: 8px;
+            font-size: 24px;
+            @include transition;
+        }
+        @include breakpoint(max-sm) {
+            padding: 15px 0 10px;
+            &::before {
+                display: none;
+            }
+            .title {
+                font-size: 17px;
+            }
+        }
+    }
+    &-content {
+        padding: 0 25px 15px;
+        p {
+            margin-bottom: 15px;
+        }
+        @include breakpoint(max-sm) {
+            padding-left: 0;
+            padding-bottom: 5px;
+            p {
+                font-size: 15px;
+            }
+        }
+    }
+}
+// Faq Section Ends Here
+
+
+// Job Details Section Starts Here
+.job__details__widget {
+    padding: 35px 30px;
+    margin-top: 30px;
+    background: $section-bg;
+    border: 1px solid $border-color;
+    @include breakpoint(max-sm) {
+        padding: 25px 20px;
+    }
+    @include breakpoint(max-sm) {
+        padding: 20px 15px;
+    }
+    &-title {
+        margin-bottom: 15px;
+    }
+    .job__details__list {
+        padding-left: 35px;
+        li {
+            padding: 5px 0;
+            list-style-type:decimal;
+        }
+    }
+}
+.job__finished__form {
+    .input-group {
+        input[type='file'] {
+            line-height: 25px;
+            padding: 11px 25px;
+        }
+        .form-label {
+            font-size: 12px;
+            margin-top: 5px;
+            margin-left: 10px !important;
+        }
+    }
+}
+
+.job__details__sidebar {
+    position: sticky;
+    top: 10px;
+    margin-top: 60px;
+}
+.sidebar__widget {
+    margin-bottom: 40px;
+    &-title {
+        position: relative;
+        padding-bottom: 8px;
+        margin-bottom: 25px;
+        border-bottom: 1px solid $border-color;
+        &::before, &::after {
+            position: absolute;
+            content: '';
+            width: 35px;
+            height: 3px;
+            background: $base-color;
+            bottom: 0;
+            left: 0;
+        }
+        &::after {
+            width: 15px;
+            left: 45px;
+        }
+    }
+    .info__wrapper {
+        border: 1px solid $border-color;
+    }
+    .info__item {
+        padding: 25px 25px;
+        @extend %flex;
+        align-items: center;
+        width: 100%;
+        border-bottom: 1px solid $border-color;
+        &:last-child {
+            border: none;
+        }
+        .icon {
+            width: 50px;
+            height: 50px;
+            font-size: 50px;
+            line-height: 1;
+            color: $warning;
+        }
+        .content {
+            width: calc(100% - 75px);
+            border-left: 1px solid $border-color;
+            margin-left: 25px;
+            padding-left: 25px;
+            @include breakpoint(max-xl) {
+                width: calc(100% - 65px);
+                margin-left: 15px;
+                padding-left: 15px;
+            }
+            .title {
+                color: $success;
+                font-size: 22px;
+                font-weight: 600;
+                margin-bottom: 5px;
+            }
+            p {
+                font-size: 15px;
+            }
+        }
+    }
+}
+// Job Details Section Ends Here
+

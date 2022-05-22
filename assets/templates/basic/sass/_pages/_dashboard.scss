@@ -1,0 +1,527 @@
+.user__profile {
+    text-align: center;
+    padding: 50px 40px 15px;
+    position: relative;
+    overflow: hidden;
+    &::before, &::after {
+        position: absolute;
+        content: "";
+        width: 50px;
+        height: 50px;
+        width: 130px;
+        height: 100px;
+        left: -40px;
+        top: -40px;
+        background: rgba($base-color,.1);
+        border-radius: 50%;
+        animation: pulse 4s linear infinite;
+    }
+    &::after {
+        left: -70px;
+        top: -70px;
+        animation-delay: .5s;
+    }
+
+    &-thumb {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 30px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 8px solid $white;
+        box-shadow: 0px 0px 7px 10px rgba($base-color,.1);
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &-content {
+        .title {
+            margin-bottom: 5px;
+        }
+        .designation {
+            font-size: 14px;
+            font-style: italic;
+            color: $base-color;
+            margin-bottom: 10px;
+        }
+    }
+}
+.dashboard__sidebar {
+    border-radius: 5px;
+    box-shadow: 1px 3px 13px rgba($dark,.1);
+    position: sticky;
+    top: 0px;
+    background: $white;
+    @include breakpoint(max-lg) {
+        position: fixed;
+        min-width: 280px;
+        max-width: 300px;
+        width: 100%;
+        height: 100vh;
+        overflow-y: auto;
+        left: 0;
+        top: 0;
+        z-index: 111;
+        @include transition;
+        transform: translateX(-100%);
+        &.active {
+            z-index: 1111;
+            transform: translateX(0);
+        }
+    }
+    .dashboard__sidebar__close {
+        padding: 5px;
+        line-height: 1;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+}
+.dashboard__sidebar__menu {
+    margin: 0;
+    li {
+        padding: 3px 0;
+        overflow: hidden;
+        border-bottom: 1px solid rgba($dark,.05);
+        position: relative;
+        &::before {
+            @include line-ico;
+            content: '\f054';
+            left: -20px;
+            top: 3px;
+            font-size: 18px;
+            color: $base-color;
+            @include transition;
+        }
+        &.active {
+            color: $base-color;
+            &::before {
+                left: 5px;
+            }
+        }
+        &:last-child {
+            border: none;
+        }
+        a {
+            display: block;
+            padding: 5px 25px;
+            padding-left: 35px;
+            &:hover, &.active {
+                color: $base-color;
+            }
+        }
+        &.has__submenu {
+            >a {
+                position: relative;
+                &::before {
+                    @include line-ico;
+                    content: '\f078';
+                    right: 15px;
+                    top: 3px;
+                }
+            }
+        }
+    }
+    .sidebar__submenu {
+        display: none;
+        margin-left: 55px;
+        font-size: 15px;
+        li {
+            padding: 3px 0;
+            position: relative;
+            a {
+                padding-left: 0px;
+            }
+        }
+    }
+}
+
+.dashboard__responsive__header {
+    padding: 10px 25px;
+    background: $section-bg;
+    margin-bottom: 50px;
+    .thumb__wrapper {
+        .thumb {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        .username {
+            font-size: 17px;
+            color: $base-color;
+        }
+    }
+    .dashboard__sidebar__toggler {
+        font-size: 36px;
+        color: $base-color;
+        line-height: 1;
+    }
+}
+
+
+div[class*='col'] {
+    &:nth-of-type(4n + 1) {
+        >.dashboard__card__item {
+            background: #007bff;
+        }
+    }
+    &:nth-of-type(4n + 2) {
+        >.dashboard__card__item {
+            background: #eb4a47;
+        }
+    }
+    &:nth-of-type(4n + 3) {
+        >.dashboard__card__item {
+            background: #4daa52;
+        }
+    }
+    &:nth-of-type(4n + 4) {
+        >.dashboard__card__item {
+            background: #26c6da;
+        }
+    }
+}
+.dashboard__card__item{
+    box-shadow: 2px 2px 10px rgba($dark,.1);
+    margin: 5px;
+    padding: 30px 25px 60px;
+    border-radius: 5px;
+    @include transition;
+    position: relative;
+    &-icon {
+        width: 110px;
+        height: 110px;
+        background: rgba($white,.1);
+        font-size: 80px;
+        color: $white;
+        position: absolute;
+        line-height: 1;
+        right: -15px;
+        top: -15px;
+        border-radius: 50%;
+        line-height: 110px;
+        text-align: center;
+        i {
+            opacity: .3;
+        }
+    }
+    .info {
+        font-size: 20px;
+        text-transform: uppercase;
+        color: $white;
+    }
+    .title {
+        color: $white;
+        margin-top: 0px;
+        font-size: 48px;
+    }
+    &-footer {
+        position: absolute;
+        padding: 10px 20px;
+        background: rgba($white,.2);
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        a {
+            display: block;
+            color: $white;
+        }
+    }
+}
+
+// Chart
+.job__completed {
+    margin-top: 60px;
+    padding: 30px;
+    border: 1px solid $border-color;
+    @include breakpoint(max-xl) {
+        padding: 15px;
+    }
+    @include breakpoint(max-sm) {
+        padding: 0;
+        border: none;
+    }
+}
+
+
+// Finished Jobs
+.finished__job__item {
+    padding: 30px 35px;
+    background: $section-bg;
+    border-radius: 10px;
+    border: 1px solid $border-color;
+    margin-bottom: 15px;
+    @include breakpoint(max-xl) {
+        padding: 25px 25px;
+    }
+    @include breakpoint(max-xs) {
+        padding: 20px 15px;
+    }
+    .job__header {
+        &-title {
+            font-size: 18px;
+            margin-bottom: 5px;
+            a {
+                &:hover {
+                    color: $base-color;
+                }
+            }
+        }
+        .job-post-date {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    }
+    .employer__wrapper {
+        .employer__thumb {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        .employer__name {
+            font-size: 16px;
+        }
+        .account-date {
+            font-size: 13px;
+        }
+        .rating {
+            font-size: 14px;
+        }
+    }
+    .job__price {
+        color: $base-color;
+        sub {
+            font-size: 60%;
+            transform: translate(4px,-12px);
+            font-weight: 400;
+        }
+    }
+    .job__footer {
+        @include breakpoint(max-xs) {
+            width: 100%;
+            margin-top: 25px;
+        }
+        .take-on {
+            font-size: 14px;
+            margin-top: 7px;
+            color: $info;
+        }
+        .take-on-date {
+            font-size: 13px;
+            color: $dark;
+        }
+    }
+}
+
+.profile__thumb__edit {
+    @include breakpoint(xxl) {
+        padding-right: 50px;
+    }
+    .thumb {
+        max-width: 300px;
+        width: 100%;
+        height: 260px;
+        margin: 0 auto;
+        border-radius: 15px;
+        overflow: hidden;
+        margin-bottom: 25px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+.profile__content__edit {
+    .input-group {
+        .form-label {
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .form--control {
+            height: 45px;
+            width: 100%;
+            border-color: $border-color;
+            &:focus {
+                border-color: rgba($base-color,.7);
+            }
+        }
+    }
+
+}
+
+// Transection Table
+.transection__table {
+    tbody {
+        tr {
+            .invoice-id {
+                color: $info;
+            }
+            .amount {
+                color: $dark;
+                font-weight: 600;
+            }
+            .gateway {
+                img {
+                    width: 15px;
+                    height: 15px;
+                    object-fit: contain;
+                    margin-right: 7px;
+                }
+            }
+            .status {
+                text-transform: uppercase;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: 1px;
+            }
+        }
+    }
+}
+
+// Method Card
+.method__card {
+    padding: 25px;
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba($dark,.1);
+    .method__icon {
+        width: 150px;
+        height: 150px;
+        margin: 20px auto 25px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    p {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+
+}
+.modal {
+    .modal-content {
+        padding: 10px 20px ;
+    }
+    .info {
+        font-size: 15px;
+        li {
+            padding: 4px 0;
+        }
+    }
+    form {
+        .form--control {
+            border-radius: 5px 0 0 5px !important;
+        }
+        .input-group-append {
+            border-radius: 0 5px 5px 0 !important;
+            transform: translateX(-2px);
+        }
+    }
+}
+
+// Change Pass
+.pass__change {
+    padding: 30px;
+    box-shadow: 0 3px 15px rgba($dark,.1);
+    @include breakpoint(max-xs) {
+        padding: 25px 15px;
+    }
+    form {
+        .input-group {
+            display: flex;
+            align-items: center;
+        }
+        label {
+            max-width: 200px;
+            width: 100%;
+        }
+        input {
+            min-width: 250px !important;
+            width: 100%;
+        }
+    }
+}
+
+.two__factor {
+    box-shadow: 0 0 15px rgba($dark,.1);
+    .input-group {
+        .copybtn {
+            font-size: 18px !important;
+            height: 50px;
+        }
+    }
+}
+.two__factor__modal {
+    form {
+        .input-group {
+            .form--control {
+                border-radius: 5px !important;
+            }
+        }
+    }
+}
+
+// Create Campaigns
+.create__campaigns {
+    padding: 40px;
+    border: 1px solid $border-color;
+    @include breakpoint(max-md) {
+        padding: 30px;
+    }
+    @include breakpoint(max-xs) {
+        padding: 20px 15px;
+    }
+    .campaigns__header {
+        text-align: center;
+    }
+    &-title {
+        text-align: center;
+    }
+}
+.create__campaigns__form {
+    margin-top: 50px;
+    .nice-select {
+        span {
+            @include text-wrap;
+        }
+        .list {
+            max-height: 250px  !important;
+        }
+    }
+    .input-group {
+        margin-bottom: 25px;
+        background: $white;
+        ::-webkit-input-placeholder {
+            font-size: 15px;
+        }
+    }
+    .input-group-apend {
+        .input-group-text {
+            border-radius: 0 5px 5px 0 !important;
+            display: flex !important;
+            line-height: 1 !important;
+        }
+    }
+    .calendar-icon {
+        display: flex !important;
+    }
+}
